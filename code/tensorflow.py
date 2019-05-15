@@ -20,6 +20,6 @@ sess = tf.Session()#初始化
 sess.run(init)#指针激活程序
 
 for step in range(201):
-sess.run(train)
-if step%20==0:
-print(step,sess.run(Weights),sess.run(biases))
+  sess.run(train)
+  if step%20==0:
+    print(step,sess.run(Weights),sess.run(biases))
