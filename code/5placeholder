@@ -1,9 +1,28 @@
-import tensorflow as tf
-#局部变量
-input1 = tf.placeholder(tf.float32)
-input2 = tf.placeholder(tf.float32)
+import tensorflow as tf 
+import numpy as np 
+import matplotlib.pyplot as plt
 
-output = tf.multiply(input1,input2)
+x_data = np.random.randn(100)
+y_data = x_data*0.3+0.1
+ 
+weight = tf.Variable(0.5)
+bias = tf.Variable(0.5)
+x_ = tf.placeholder(tf.float32)
+y_ = tf.placeholder(tf.float32)
+y_modele = weight*x_+bias
 
-with tf.Session() as sess:
-  print(sess.run(output,feed_dict={input1:[7.],input2:[2.]}))
+loss = tf.pow((y_modele - y_),2)
+train = tf.train.GradientDescentOptimizer(0.01).minimize(loss)
+
+sess = tf.Session()
+init = tf.initialize_all_variables()
+sess.run(init)
+
+for _ in range(10):
+    for(x,y) in zip (x_data,y_data):
+        sess.run(train,feed_dict={x_:x,y_:y})
+
+plt.plot(x_data,y_data,'or',label='原始数据')
+plt.plot(x_data,sess.run(weight)*(x_data)+sess.run(bias),label='训练后')
+plt.legend()
+plt.show()
