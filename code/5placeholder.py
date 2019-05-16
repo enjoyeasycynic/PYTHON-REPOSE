@@ -19,6 +19,15 @@ y_ = tf.placeholder(tf.float32)
 #********************************
 #所以这里的代码和0tensorflow.py中的些许不一样。
 #当输入的数据量特别大时，placeholder的作用尤为明显
+#*********************************
+#tf.placeholder(
+#    dtype,
+#    shape=None,
+#    name=None)
+#dtype：数据类型。常用的是tf.float32,tf.float64等数值类型
+#shape：数据形状。默认是None，就是一维值，也可以是多维（比如[2,3], [None, 3]表示列是3，行不定）
+#name：名称
+#以上
 y_modele = weight*x_+bias
 
 loss = tf.pow((y_modele - y_),2)
