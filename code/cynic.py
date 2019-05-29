@@ -10,3 +10,5 @@ print(output)
 writer = tf.summary.FileWriter('home/feigu/tmp',sess.graph)
 writer.close()
 sess.close()
+#执行完程序后 在终端输入：tensorboard --logdir="home/feigu/tmp"
+#根据提示打开http://localhost:6006,进入可视化的数据流图
