@@ -1,0 +1,179 @@
+- Python 提供了一个办法，把这些定义存放在文件中，为一些脚本或者交互式的解释器实例使用，这个文件被称为模块。  
+- 模块是一个包含所有你定义的函数和变量的文件，其后缀名是.py。模块可以被别的程序引入，以使用该模块中的函数等功能。这也是使用 python 标准库的方法。
+```python
+import sys
+ 
+print('命令行参数如下:')
+for i in sys.argv:
+   print(i)
+ 
+print('\n\nPython 路径为：', sys.path, '\n')
+```
+1. import sys 引入 python 标准库中的 sys.py 模块；这是引入某一模块的方法。
+2. sys.argv 是一个包含命令行参数的列表。
+3. sys.path 包含了一个 Python 解释器自动查找所需模块的路径的列表。 
+ 
+执行结果:
+```
+命令行参数如下:
+using_sys.py
+参数1
+参数2
+ 
+Python 路径为： ['/root', '/usr/lib/python3.4', '/usr/lib/python3.4/plat-x86_64-linux-gnu', '/usr/lib/python3.4/lib-dynload', '/usr/local/lib/python3.4/dist-packages', '/usr/lib/python3/dist-packages']
+```
+- import 语句
+想使用 Python 源文件，只需在另一个源文件里执行 import 语句，语法如下：
+```
+import module1[, module2[,... moduleN]
+```
+1. 创建support.py 文件代码
+```
+def print_func( par ):
+    print ("Hello : ", par)
+    return
+```
+2. test.py 引入 support 模块：
+```
+#!/usr/bin/python3
+# Filename: test.py
+ 
+# 导入模块
+import support
+ 
+# 现在可以调用模块里包含的函数了
+support.print_func("Runoob")
+```
+输出结果：
+```
+Hello :  Runoob
+```
+- from … import 语句  
+Python 的 from 语句让你从模块中导入一个指定的部分到当前命名空间中，语法如下：
+```
+from modname import name1[, name2[, ... nameN]]
+```
+例如:
+```
+from sys import argv
+```
+- from … import * 语句
+把一个模块的所有内容全都导入到当前的命名空间也是可行的，只需使用如下声明：
+```
+from modname import *
+```
+
+- 类定义 
+类实例化以后，可以使用其属性
+- 类对象  
+类对象支持两种操作
+#### 1. 属性引用
+**方法和属性不能混淆**
+```
+odj.name
+```
+#### 2. 实例化
+```python
+class myclass:
+    i = 123456
+    def f(self):
+        return'hello world'
+#类的实例化
+x = myclass()
+ 
+#属性引用
+print("myclass类的属性i是:",x.i)
+print("myclass类的方法f是：",x.f()) 
+#这里的x.f(),容易写错，不要把方法和属性混淆
+```
+输出结果：
+```
+myclass类的属性i是： 123456
+myclass类的方法f输出：hello world
+```
+
+- ``` __init__()```的特殊构造方法
+**对__init__()理解**
+类定义了 __init__() 方法，类的实例化操作会自动调用 __init__() 方法
+ __init__() 方法可以有参数，参数通过 __init__() 传递到类的实例化操作上
+x = complex(3.0,-4.5) 类的实例化中，直接把参数传递到类上
+x = myclass 普通的构造方法只能这样
+如下：
+```python
+class complex:
+    def  __init__(self,realpart,imagpart):
+        self.r = realpart
+        self.i = imagoart
+x = complex(3.0,-4.5)
+print(x.r,x.i)
+#输出结果：3.0 -4.5
+```
+**下面的程序解释构造方法中的初始值无法继承问题**
+```
+class  Bird:
+    def  __init__(self):
+        self.hungry =  True
+    def  eat(self):
+        if  self.hungry:
+            print  ('Ahahahah')
+        else:
+            print  ('No thanks!')
+class  SongBird(Bird):
+    def  __init__(self):
+        self.sound =  'Squawk'
+    def  sing(self):
+        print  (self.sound)
+sb =  SongBird()
+sb.sing()  #能正常输出
+sb.eat()  #报错，因为songgird中没有hungry特性
+```
+#### 数据封装：
+```python
+class Student:
+    classroom = '101'
+    address = 'beijing'
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def print_age(self):
+        print('%s: %s' % (self.name, self.age))
+
+- 以下是错误的用法
+- 类将它内部的变量和方法封装起来，阻止外部的直接访问
+print(classroom)
+print(adress)
+```
+自我练习
+```python
+class  csgo:
+    def  __init__(self):
+        self.level =  'caibi'
+    def  duipen(self):
+        print(self.level)
+cs =  csgo()
+cs.duipen()
+```
+**类的方法(在类中使用函数就是方法)**
+在类的内部，使用 def 关键字来定义一个方法，与一般函数定义不同，类方法必须包含参数 self, 且为第一个参数，self 代表的是类的实例。
+```python
+#类定义
+class  people:
+    #定义基本属性
+    name =  ''
+    age =  0
+    #定义私有属性,私有属性在类外部无法直接进行访问
+    __weight =  0
+    #定义构造方法
+    def  __init__(self,n,a,w):
+        self.name = n
+        self.age = a
+        self.__weight = w
+    def  speak(self):
+        print("%s 说: 我 %d 岁。"  %(self.name,self.age))
+# 实例化类
+p =  people('runoob',10,30)
+p.speak()
+```
+### 二，继承
