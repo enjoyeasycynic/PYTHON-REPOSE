@@ -1,0 +1,198 @@
+#这里是python2.x的代码
+- 列表
+```python
+member.append("ccc")
+#可以向member中加入ccc，默认加到最后
+ 
+member.extend(["cccc,c9999"])
+#可以向member中加入1个列表（多个元素）
+ 
+member.insert(1,cccc)
+#可以在1的位置加入cccc（是从0开始，也就是第二个位置）
+ 
+temp = member[0]
+#调用member中的最开始位置的元素
+ 
+member.remove('fccc')
+#在member中删除fccc元素
+ 
+member.reverse()
+#反转数组，第一个到最后，最后到第一
+ 
+member.sort()
+# 对数组排序，默认从小到大
+ 
+str = "Line1-abcdef \nLine2-abc \nLine4-abcd";
+print str.split( );       # 以空格为分隔符，包含 \n
+print str.split(' ', 1 ); # 以空格为分隔符，分隔成两个
+ 
+#以上实例输出结果如下：
+#['Line1-abcdef', 'Line2-abc', 'Line4-abcd']
+#['Line1-abcdef', '\nLine2-abc \nLine4-abcd']
+```
+- 元组  
+1. 创建空元组
+```
+tup1 = ()
+```
+2. 元组中只包含一个元素时，需要在元素后面添加逗号
+```
+tup1 = (50,)
+#元组与字符串类似，下标索引从0开始，可以进行截取，组合等。
+```
+3. 访问元组
+```
+tup1 = ('physics', 'chemistry', 1997, 2000)
+tup2 = (1, 2, 3, 4, 5, 6, 7 )
+ 
+print "tup1[0]: ", tup1[0]
+print "tup2[1:5]: ", tup2[1:5]
+```
+4. 修改元组
+```python
+tup1 = (12, 34.56)
+tup2 = ('abc', 'xyz')
+ 
+# 以下修改元组元素操作是非法的。
+# tup1[0] = 100
+ 
+# 创建一个新的元组
+tup3 = tup1 + tup2
+print tup3
+```
+5. 删除元组  
+```python
+#元组中的元素值是不允许删除的，但我们可以使用del语句来删除整个元组
+del tup
+```
+6. 元组内置函数
+```python
+cmp(tuple1, tuple2)
+#比较两个元组元素。
+len(tuple)
+#计算元组元素个数。
+max(tuple)
+#返回元组中元素最大值。
+min(tuple)
+#返回元组中元素最小值。
+tuple(seq)
+#将列表转换为元组。
+```
+
+#这里是python2.x的代码
+- 字典格式 
+字典是另一种可变容器模型，且可存储任意类型对象。
+ 
+字典的每个键值 key=>value 对用冒号 : 分割，每个键值对之间用逗号 , 分割，整个字典包括在花括号 {} 中 ,格式如下所示：
+```python
+d = {key1 : value1, key2 : value2 }
+```
+一个简单的字典实例：
+```python
+dict = {'Alice': '2341', 'Beth': '9102', 'Cecil': '3258'}
+```
+- 访问字典里的值(*)
+```python
+dict = {'Name': 'Runoob', 'Age': 7, 'Class': 'First'}
+ 
+print ("dict['Name']: ", dict['Name'])
+print ("dict['Age']: ", dict['Age'])
+#如果用字典里没有的键访问数据，会输出错误
+#dict['Name']:  Runoob
+#dict['Age']:  7
+```
+- 修改字典 
+向字典==添加==新内容的方法==是增加新的键/值对==，==修改==或==删除==已有键/值对如下实例:
+```python
+dict = {'Name': 'Runoob', 'Age': 7, 'Class': 'First'}
+ 
+dict['Age'] = 8;               # 更新 Age
+dict['School'] = "菜鸟教程"  # 添加信息
+ 
+ 
+print ("dict['Age']: ", dict['Age'])
+print ("dict['School']: ", dict['School'])
+ 
+#dict['Age']:  8
+#dict['School']:  菜鸟教程
+```
+- 删除字典元素 
+能删单一的元素，也能清空字典
+显示删除一个字典用del命令，如下实例：
+```python
+dict = {'Name': 'Runoob', 'Age': 7, 'Class': 'First'}
+ 
+del dict['Name'] # 删除键 'Name'
+dict.clear()     # 清空字典
+del dict         # 删除字典
+ 
+print ("dict['Age']: ", dict['Age'])
+print ("dict['School']: ", dict['School'])
+#这里已经清空了，字典不存在，del就没用了。
+
+- 迭代器 
+1. #字符串，列表或元组对象都可用于创建迭代器：
+```python
+>>>list=[1,2,3,4]
+
+>>> it = iter(list)    # 创建迭代器对象
+>>> print (next(it))   # 输出迭代器的下一个元素
+1
+>>> print (next(it))
+2
+```
+2. 迭代器对象可以使用常规for语句进行遍历:
+```python
+list=[1,2,3,4]
+it = iter(list)    # 创建迭代器对象
+for x in it:
+    print (x, end=" ")
+ 
+#1 2 3 4
+```
+3. next() 函数：
+```python
+import sys         # 引入 sys 模块
+ 
+list=[1,2,3,4]
+it = iter(list)    # 创建迭代器对象
+ 
+while True:
+    try:
+        print (next(it))
+    except StopIteration:
+        sys.exit()
+#1
+#2
+#3
+#4
+```
+- 创建迭代器
+把一个类作为一个迭代器使用需要在类中实现两个方法 ```__iter__() ```与``` __next__()``` 。
+```python
+class MyNumbers:
+  def __iter__(self):
+    self.a = 1
+    return self
+ 
+  def __next__(self):
+    x = self.a
+    self.a += 1
+    return x
+ 
+myclass = MyNumbers()
+myiter = iter(myclass)
+ 
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
+```
+执行输出结果为：
+ 
+1 
+2 
+3 
+4  
+5 
