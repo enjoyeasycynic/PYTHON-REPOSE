@@ -1,6 +1,7 @@
 # learning
 
-### 环境配置
+### Anaconda+OpenCV+tensorflow环境配置
+https://blog.csdn.net/weixin_43264986/article/details/90206299
 **硬件配置：** 
 - Cpu i5-8300H  
 - 显卡 1050Ti  
