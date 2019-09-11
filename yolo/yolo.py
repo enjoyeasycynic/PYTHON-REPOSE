@@ -81,16 +81,17 @@ class YOLO(object):
 
         print('{} model, anchors, and classes loaded.'.format(model_path))
 
-        # Generate colors for drawing bounding boxes.
+        #生成绘制边框的颜色。
         hsv_tuples = [(x / len(self.class_names), 1., 1.)
+        #h(色调）：x/len(self.class_names)  s(饱和度）：1.0  v(明亮）：1.0
                       for x in range(len(self.class_names))]
-        self.colors = list(map(lambda x: colorsys.hsv_to_rgb(*x), hsv_tuples))
+        self.colors = list(map(lambda x: colorsys.hsv_to_rgb(*x), hsv_tuples)) #hsv转换为rgb
         self.colors = list(
-            map(lambda x: (int(x[0] * 255), int(x[1] * 255), int(x[2] * 255)),
+            map(lambda x: (int(x[0] * 255), int(x[1] * 255), int(x[2] * 255)), #hsv取值范围在【0,1】，而RBG取值范围在【0,255】，所以乘上255
                 self.colors))
-        np.random.seed(10101)  # Fixed seed for consistent colors across runs.
-        np.random.shuffle(self.colors)  # Shuffle colors to decorrelate adjacent classes.
-        np.random.seed(None)  # Reset seed to default.
+        np.random.seed(10101)  # Fixed seed for consistent colors across runs.# np.random.seed():产生随机种子。固定种子为一致的颜色
+        np.random.shuffle(self.colors)  # Shuffle colors to decorrelate adjacent classes.调整颜色来装饰相邻的类。
+        np.random.seed(None)  # Reset seed to default.重置种子为默认
 
         # Generate output tensor（张量） targets for filtered（过滤后） bounding boxes.
         self.input_image_shape = K.placeholder(shape=(2, ))
