@@ -1,31 +1,34 @@
 # learning
-Learning materials management
-# 环境配置
+
+### 环境配置
 **硬件配置：** 
 - Cpu i5-8300H  
 - 显卡 1050Ti  
-- WIN10 家庭版 版本：2018-1803
+- WIN10 企业版 版本：2019LTSC
 - python 3.5（win平台 建议使用3.5）
 - Cuda 9.0（10系显卡官方建议11.0，但是不建议10。0以上，win10会BUG）
 - Cudnn v7.4（适合Cuda 9.0）
  
  
  
-##### 1.Anaconda的安装下载 
+#### 1.Anaconda的安装下载 
 清华大学开源软件**镜像站**进行下载并配置镜像
 https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/  
  
 **下载版本需要注意事项：**  
-找到**3-4.2版本的Anaconda安装包**下载安装，这样获得的默认python就是3.5版本了   
+
+找到**3-4.2版本的Anaconda安装包**下载安装，这样获得的默认python就是3.5版本了 
 **注意：3-4.2以上版本的python都是3.6以上，在WIN下与诸多插件不兼容，不建议使用**  
 **注意：python3.7和tensoflow到目前为止仍然不兼容（2018.10.7）**
-##### 2.安装
+
+#### 2.安装
 基本都是**下一步**。 
 为了避免不必要的麻烦，**建议默认路径安装即可**（其实没必要）
 **注意事项：**   
 ![image](https://upload-images.jianshu.io/upload_images/10099391-694a47c246b6fa4f.jpg)   
 **两个都✔，建议，否则需要自己设置环境变量，自行百度**
-##### 3.配置Anaconda(关键步骤)
+
+#### 3.配置Anaconda(关键步骤)
 ##### 3.1下载镜像配置（linux下可以在设置软件与更新中更改，此方法主要是win）
 清华TUNA镜像源有Anaconda仓库的镜像，我们将其加入conda的配置即可：  
 安装Anaconda后会有Anaconda Prompt，打开Prompt输入下列：
