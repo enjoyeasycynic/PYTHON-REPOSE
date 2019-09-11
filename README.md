@@ -1,5 +1,5 @@
-# learning
-Learning materials management
+# 学习状态
+
 ### 现主要目标：
 - Python，基本语法入门，纯新手（没有任何编程经验）推荐《笨方法学Python》
     1. 选择一个深度学习框架，PyTorch/ Keras
