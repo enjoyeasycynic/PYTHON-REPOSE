@@ -20,7 +20,7 @@
  - MNS算法   
   1.:white_check_mark:算法实现
   
- - 论文相关素材整理
- - 英语
- - 驾照
+ - :construction: 论文相关素材整理
+ - :pencil2: 英语
+ - :ambulance: 驾照
  - :hammer: Life ends up as on update on knowledge
