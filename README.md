@@ -7,7 +7,7 @@
    3. OpenCV
     
 - 一般来说，深度学习分为3个阶段：  
-   1.了解深度学习的基本概念，然后能够跑通一个预训练好的Demo， 建议学习材料：Python深度学习：基于TensorFlow   
+   1. 了解深度学习的基本概念，然后能够跑通一个预训练好的Demo， 建议学习材料：Python深度学习：基于TensorFlow   
    2. :white_check_mark:能够训练别人的模型   
    3. :white_check_mark:能够创造自己的模型  
 
