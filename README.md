@@ -23,4 +23,4 @@
  - 论文相关素材整理
  - 英语
  - 驾照
- - :checked_flag:Life ends up as on update on knowledge
+ - :hammer: Life ends up as on update on knowledge
